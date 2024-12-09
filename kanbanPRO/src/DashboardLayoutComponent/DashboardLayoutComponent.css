@@ -1,0 +1,6 @@
+.dashLayout-container-kanbanBoard {
+    display: flex;
+    padding: 40px;
+    width: 100%;
+    height: 2000px;
+}

@@ -1,0 +1,117 @@
+.task-card {
+  position: relative; /* Necessário para o efeito de dobra ser posicionado em relação ao card */
+  padding: 8px;
+  margin-bottom: 8px;
+  background: #ffdb58;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  cursor: grab;
+  display: flex;
+  flex-direction: column;
+}
+
+.task-card-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.task-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.task-card-title {
+  font-weight: bold;
+  flex: 1;
+}
+
+.task-card-menu {
+  cursor: pointer;
+  font-size: 18px;
+  color: #007bff;
+  position: relative; /* Permite que o submenu seja posicionado em relação a este elemento */
+}
+
+.task-card-menu:hover {
+  color: #0056b3;
+}
+
+/* Submenu */
+.task-card-submenu {
+  display: none; /* Inicialmente o submenu estará oculto */
+  margin-top: 8px;
+  padding: 8px;
+  background-color: #f4f5f7;
+  border-radius: 4px;
+  position: absolute;
+  top: 100%; /* Coloca o submenu logo abaixo do ícone */
+  left: 0; /* Ajusta para que o submenu apareça logo à direita do ícone */
+  width: 150px; /* Largura do submenu, você pode ajustar conforme necessário */
+  z-index: 10; /* Garante que o submenu ficará acima de outros elementos */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para o submenu */
+}
+
+/* Mostrar o submenu quando estiver ativo */
+.task-card-menu.open .task-card-submenu {
+  display: block; /* Exibe o submenu quando a classe "open" for aplicada */
+}
+
+.task-card-submenu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.task-card-submenu li {
+  padding: 4px 0;
+  cursor: pointer;
+}
+
+.task-card-submenu li:hover {
+  background-color: #e0e0e0;
+}
+
+.task-card-content {
+  padding: 10px;
+   height: auto;
+}
+
+.task-card-data {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Detalhes */
+.task-card-details-icon {
+  margin-top: 50px;
+  display: flex;
+  padding: 10px;
+  cursor: pointer;
+  color: #007bff;
+  gap: 10px;
+}
+
+.task-card-details-icon:hover {
+  color: #0056b3;
+}
+
+.task-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0; /* Fixa o efeito no fundo do card */
+  right: 0; /* Fixa o efeito no canto direito */
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(
+    45deg,
+    #ffdb58 50%, /* Cor amarela */
+    #f4f5f7 50% /* Cor de fundo do card */
+  );
+  transform: rotate(90deg); /* Gira a "dobra" */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para simular o efeito de post-it */
+  z-index: 5;
+}
